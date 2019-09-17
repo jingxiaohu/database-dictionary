@@ -5,6 +5,7 @@
 同步数据库数据字典，支持在线选择不同的数据库，得到该库相应的所有表信息列表，支持在线PDF文件下载。
 码云下载地址：https://gitee.com/cdtrh_group/database-dictionary
 官方QQ群：256612400
+[![Build Status](https://travis-ci.org/jingxiaohu/database-dictionary.svg?branch=master)](https://travis-ci.org/jingxiaohu/database-dictionary)
 #### 使用说明
 DOCKER镜像：
 docker pull 251878350/database-dictionary:v4.0
