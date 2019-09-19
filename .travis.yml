@@ -11,4 +11,4 @@ after_success:
 #- bash <(curl -s https://codecov.io/bash) -t edacbebd-25f2-478c-9050-c415143e7ea5
 #- mvn clean test jacoco:report coveralls:report
 # - mvn clean test saga:coverage coveralls:report
- - mvn clean package cobertura:cobertura coveralls:report
+ - mvn clean package cobertura:cobertura coveralls:report -DrepoToken="${COVERALLS}"
