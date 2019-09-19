@@ -1,8 +1,11 @@
 language: java
 jdk:
-  - openjdk8
-  #- oraclejdk8
-#script: "mvn cobertura:cobertura"
+- oraclejdk8
+cache:
+  directories:
+  - '$HOME/.m2/repository'
+script:
+- mvn clean package
 after_success:
 #- bash <(curl -s https://codecov.io/bash) -t edacbebd-25f2-478c-9050-c415143e7ea5
 #- mvn clean test jacoco:report coveralls:report
