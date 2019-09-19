@@ -184,8 +184,8 @@
                         </coberturaReport>
                     </coberturaReports>
                     <sourceEncoding>UTF-8</sourceEncoding>
-                    <!-- <repoToken>pAVqEekyhhm2GJJYl8Vj4UgaeDUesUVxY</repoToken> -->
-                </configuration> -->
+                    <repoToken>pAVqEekyhhm2GJJYl8Vj4UgaeDUesUVxY</repoToken>
+                </configuration>  -->
             </plugin>
 
 
