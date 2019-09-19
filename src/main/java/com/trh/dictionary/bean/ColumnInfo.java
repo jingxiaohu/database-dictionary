@@ -1,6 +1,6 @@
 package com.trh.dictionary.bean;
 
-import javafx.beans.binding.ObjectExpression;
+#import javafx.beans.binding.ObjectExpression;
 
 /**
  * 列信息
