@@ -204,8 +204,7 @@
                         </coberturaReport>
                     </coberturaReports>
                     <sourceEncoding>UTF-8</sourceEncoding>
-                    <serviceName>travis-ci</serviceName>
-                    <serviceJobId>travis-pro</serviceJobId>
+                    <repoToken>pAVqEekyhhm2GJJYl8Vj4UgaeDUesUVxY</repoToken>
                 </configuration>
             </plugin>
             <!--<plugin>-->
