@@ -164,6 +164,12 @@
                         <version>1.1.7</version>
                     </dependency>
                 </dependencies> -->
+                 <configuration>
+                          <format>xml</format>
+                          <maxmem>256m</maxmem>
+                          <!-- aggregated reports for multi-module projects -->
+                          <aggregate>true</aggregate>
+                 </configuration>
             </plugin>
 
             <plugin>
@@ -171,7 +177,7 @@
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.3.0</version>
 
-                <configuration>
+<!--                 <configuration>
                     <coberturaReports>
                         <coberturaReport>
                             ${basedir}/target/site/cobertura/index.html
@@ -179,7 +185,7 @@
                     </coberturaReports>
                     <sourceEncoding>UTF-8</sourceEncoding>
                     <!-- <repoToken>pAVqEekyhhm2GJJYl8Vj4UgaeDUesUVxY</repoToken> -->
-                </configuration>
+                </configuration> -->
             </plugin>
 
 
