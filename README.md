@@ -6,6 +6,7 @@
 码云下载地址：https://gitee.com/cdtrh_group/database-dictionary
 官方QQ群：256612400
 [![Build Status](https://travis-ci.org/jingxiaohu/database-dictionary.svg?branch=master)](https://travis-ci.org/jingxiaohu/database-dictionary)
+[![Coverage Status](https://coveralls.io/repos/github/jingxiaohu/database-dictionary/badge.svg?branch=master)](https://coveralls.io/github/jingxiaohu/database-dictionary?branch=master)
 #### 使用说明
 DOCKER镜像：
 docker pull 251878350/database-dictionary:v4.0
