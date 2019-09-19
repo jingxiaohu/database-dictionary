@@ -114,6 +114,14 @@
             <artifactId>jcc</artifactId>
             <version>11.5.0.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun/tools -->
+<dependency>
+    <groupId>com.sun</groupId>
+    <artifactId>tools</artifactId>
+    <version>1.5.0</version>
+    <scope>system</scope>
+</dependency>
+     
     </dependencies>
 
     <build>
@@ -165,7 +173,7 @@
                 <configuration>
                     <coberturaReports>
                         <coberturaReport>
-                            ${basedir}/target/coverage.
+                            ${basedir}/target/coverage.json
                         </coberturaReport>
                     </coberturaReports>
                     <sourceEncoding>UTF-8</sourceEncoding>
