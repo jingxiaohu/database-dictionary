@@ -155,19 +155,19 @@
             </plugin>
 
 
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.6.201602180812</version>
-                <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.jacoco</groupId>-->
+                <!--<artifactId>jacoco-maven-plugin</artifactId>-->
+                <!--<version>0.7.6.201602180812</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>prepare-agent</id>-->
+                        <!--<goals>-->
+                            <!--<goal>prepare-agent</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
@@ -177,11 +177,11 @@
                     <repoToken>O1xitPA2obta8km9l8RMNVudKQmiKeHTo</repoToken>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.4</version>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>findbugs-maven-plugin</artifactId>-->
+                <!--<version>3.0.4</version>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>com.github.timurstrekalov</groupId>
@@ -204,72 +204,6 @@
                     </noInstrumentPatterns>
                 </configuration>
             </plugin>
-<!--检查代码覆盖率的插件配置-->
-            <!--<plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.3</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                        <configuration>
-                            <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>jacoco-site</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                        <configuration>
-                            <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
-                        </configuration>
-                    </execution>
-                    &lt;!&ndash;<execution>
-                        <id>jacoco-site</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>&ndash;&gt;
-                </executions>
-                <configuration>
-                   &lt;!&ndash; <includes>
-                        <include>com/src/**/*</include>
-                    </includes>&ndash;&gt;
-                    &lt;!&ndash; rules裏面指定覆蓋規則 &ndash;&gt;
-                    <rules>
-                        <rule implementation="org.jacoco.maven.RuleConfiguration">
-                            <element>BUNDLE</element>
-                            <limits>　　
-                                &lt;!&ndash; 指定方法覆蓋到50% &ndash;&gt;
-                                <limit implementation="org.jacoco.report.check.Limit">
-                                    <counter>METHOD</counter>
-                                    <value>COVEREDRATIO</value>
-                                    <minimum>0.50</minimum>
-                                </limit>
-                                &lt;!&ndash; 指定分支覆蓋到50% &ndash;&gt;
-                                <limit implementation="org.jacoco.report.check.Limit">
-                                    <counter>BRANCH</counter>
-                                    <value>COVEREDRATIO</value>
-                                    <minimum>0.50</minimum>
-                                </limit>
-                                &lt;!&ndash; 指定類覆蓋到100%，不能遺失任何類 &ndash;&gt;
-                                <limit implementation="org.jacoco.report.check.Limit">
-                                    <counter>CLASS</counter>
-                                    <value>MISSEDCOUNT</value>
-                                    <maximum>0</maximum>
-                                </limit>
-                            </limits>
-                        </rule>
-                    </rules>
-                </configuration>
-
-            </plugin>-->
 <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -279,97 +213,7 @@
         </plugins>
     </build>
 
-    <!--<build>
-        <resources>&lt;!&ndash; 使用@@站位符，输出Dockerfile至docker文件夹 &ndash;&gt;
-            <resource>
-                <directory>src/main/docker</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/Dockerfile</include>
-                </includes>
-                <targetPath>../docker</targetPath>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>&lt;!&ndash; 置顶 &ndash;&gt;
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.13</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>tag-image</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>tag</goal>
-                        </goals>
-                        <configuration>
-                            <image>${docker.registry.name}/${project.artifactId}:${project.version}</image>
-                            <newName>
-                                ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
-                            </newName>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>push-image</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>push</goal>
-                        </goals>
-                        <configuration>
-                            <imageName>
-                                ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
-                            </imageName>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    &lt;!&ndash; 私有仓库配置，需要settings.xml文件配合serverId对应的服务地址 &ndash;&gt;
-                    <serverId>docker-aliyun</serverId>
-                    <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
-                    &lt;!&ndash; <forceTags>true</forceTags> &ndash;&gt;
-                    &lt;!&ndash;install阶段也上传，否则只有deploy阶段上传&ndash;&gt;
-                    <pushImage>true</pushImage>
-                    <dockerDirectory>target/docker</dockerDirectory>
-                    <imageName>
-                        ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
-                    </imageName>
-                    <imageTags>
-                        &lt;!&ndash;docker的tag为项目版本号、latest&ndash;&gt;
-                        <imageTag>${git.commit.id.abbrev}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <resources>
-                        <rescource>&lt;!&ndash; 将打包文件放入dockerDirectory指定的位置 &ndash;&gt;
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </rescource>
-                        &lt;!&ndash; 输出Dockerfile至docker文件夹,如果不使用占位符,可使用以下配置 &ndash;&gt;
-                        &lt;!&ndash;
-                        <resource>
-                            <directory>src/main/docker</directory>
-                            <filtering>true</filtering>
-                            <includes>
-                                <include>**/Dockerfile</include>
-                            </includes>
-                            <targetPath>../docker</targetPath>
-                        </resource>
-                        &ndash;&gt;
-                    </resources>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>-->
+
     <!--<repositories>
         <repository>
             <id>sonatype-nexus-snapshots</id>
