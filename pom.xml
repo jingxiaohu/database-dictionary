@@ -157,30 +157,6 @@
                 </configuration>
             </plugin>
 
-
-
-            <plugin>
-                <groupId>com.github.timurstrekalov</groupId>
-                <artifactId>saga-maven-plugin</artifactId>
-                <version>1.5.5</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>coverage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <baseDir>http://localhost:8080</baseDir>
-                    <outputDir>${project.build.directory}/saga-coverage</outputDir>
-                    <noInstrumentPatterns>
-                        <pattern>.*/spec/.*</pattern>
-                        <pattern>.*/classpath/.*</pattern>
-                        <pattern>.*/webjars/.*</pattern>
-                    </noInstrumentPatterns>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
@@ -196,10 +172,6 @@
                     <repoToken>pAVqEekyhhm2GJJYl8Vj4UgaeDUesUVxY</repoToken>
                 </configuration>
             </plugin>
-
-
-
-
 
         </plugins>
     </build>
